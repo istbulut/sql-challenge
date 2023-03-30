@@ -1,0 +1,78 @@
+--logical ERD
+
+departmets
+-
+dept_no
+dept_name
+
+dept_emp
+-
+emp_no
+dept_no
+
+dept_manager
+-
+dept_no
+emp_no
+
+employees
+-
+emp_no
+emp_title_id
+birth_date	
+first_name
+last_name
+sex	
+hire_date
+
+salaries
+-
+emp_no
+salary
+
+titles
+-
+title_id
+title
+
+--physical ERD
+
+departments 
+-
+dept_no varchar(4) pk
+dept_name varchar(30)
+
+titles
+-
+title_id varchar(5) pk FK >- employees.emp_title_id
+title varchar(30)
+
+
+salaries 
+-
+emp_no int pk FK >- employees.emp_no
+salary int	
+
+employees
+-
+emp_no int pk
+emp_title_id varchar(5)
+birth_date date
+first_name varchar(30)
+last_name varchar(30)
+sex char(1)
+hire_date date
+
+dept_manager
+-
+dept_no varchar(4) FK >- departments.dept_no
+emp_no int pk FK >- employees.emp_no
+
+dept_emp 
+-
+emp_no int FK >- employees.emp_no
+dept_no varchar(4) FK >- departments.dept_no
+
+
+
+	
